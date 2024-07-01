@@ -12,13 +12,15 @@ function App() {
   const add = () => {
     const newObj = {id: items.length, title: userInput}
     const newArr = [...items, newObj];
+    for (let i = 0; i < newArr.length; i++) {
+      newArr[i].id = i
+    }
     setItems(newArr)
     setUserInput('')
   }
 
   const deleteItem = (index) => {
-    const newArr = [...items]
-    const arrFilter = newArr.filter((e) => e.id !== index)
+    const arrFilter = items.filter((e) => e.id !== index)
     setItems(arrFilter)
   }
 
